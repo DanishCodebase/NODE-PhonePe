@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo Bhai:wght@400&display=swap" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+
+        input {
+            caret-color: red;
+        }
+
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #ecf0f3;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            place-items: center;
+            overflow: hidden;
+            font-family: poppins;
+        }
+
+        .container {
+            position: relative;
+            width: 350px;
+            height: 500px;
+            border-radius: 20px;
+            padding: 40px;
+            box-sizing: border-box;
+            background: #ecf0f3;
+            box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+        }
+
+        .brand-logo {
+            height: 100px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            border-radius: 50%;
+            box-sizing: border-box;
+            box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+        }
+
+        .brand-title {
+            margin-top: 10px;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: #582d98;
+            font-family: "Baloo Bhai";
+            letter-spacing: 1px;
+        }
+
+        .inputs {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        label,
+        input,
+        button {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: none;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        label {
+            margin-bottom: 4px;
+        }
+
+        label:nth-of-type(2) {
+            margin-top: 12px;
+        }
+
+        input::placeholder {
+            color: gray;
+        }
+
+        input {
+            background: #ecf0f3;
+            padding: 10px;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            height: 50px;
+            font-size: 14px;
+            border-radius: 50px;
+            box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+        }
+
+        button {
+            color: white;
+            margin-top: 20px;
+            background: #582d98;
+            height: 40px;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+            transition: 0.5s;
+        }
+
+        button:hover {
+            box-shadow: none;
+        }
+
+        a {
+            position: absolute;
+            font-size: 8px;
+            bottom: 4px;
+            right: 4px;
+            text-decoration: none;
+            color: black;
+            background: yellow;
+            border-radius: 10px;
+            padding: 2px;
+        }
+
+        h1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div>
+        <h1>Payment Integration</h1>
+        <form action="/makePayment" method="post" id="paymentForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required><br><br>
+            <label for="number">Mobile Number:</label>
+            <input type="text" id="number" name="number" required><br><br>
+            <button type="submit">Submit Payment</button>
+        </form>
+    </div> -->
+    <div class="container">
+        <div class="brand-logo">
+            <img src="./phonepe.png" alt="" width="80">
+        </div>
+        <div class="brand-title">PhonePe</div>
+        <form action="/makePayment" method="post" class="inputs">
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="number" name="amount" placeholder="Amount" required />
+            <input type="tel" name="number" placeholder="Mobile Number" required />
+            <button type="submit">PAY NOW</button>
+        </form>
+    </div>
+
+    <!-- <script>
+        document.getElementById('paymentForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const amount = document.getElementById('amount').value;
+            const number = document.getElementById('number').value;
+
+            if (!name || !amount || !number) {
+                alert('Please fill in all the fields.');
+                return;
+            }
+
+            const url = '/makePayment';
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        amount: amount,
+                        number: number
+                    })
+                });
+
+                const responseData = await response.json();
+                console.log(responseData);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script> -->
+
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Payment</title>
+</head>
+
+<body>
+
+    <div>
+        <h1>Payment Integration</h1>
+        <form id="paymentForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required><br><br>
+            <label for="number">Mobile Number:</label>
+            <input type="text" id="number" name="number" required><br><br>
+            <button type="submit">Submit Payment</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const amount = document.getElementById('amount').value;
+            const number = document.getElementById('number').value;
+
+            // Basic client-side validation
+            if (!name || !amount || !number) {
+                alert('Please fill in all the fields.');
+                return;
+            }
+
+            const url = '/makePayment';
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        amount: amount,
+                        number: number
+                    })
+                });
+
+                const responseData = await response.json();
+                console.log(responseData); // Process server response
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
+
+</body>
+
+</html> -->
